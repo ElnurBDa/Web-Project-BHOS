@@ -6,6 +6,15 @@
     <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/profile">Profile</a></li>
+            <li><a href="/admin">Admin</a></li> 
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+    </nav>
+    <div class="container">
     <h1>Create Gladiator</h1>
     <form action="/gladiators/create" method="POST">
         <label for="name">Name</label>
@@ -20,4 +29,5 @@
         <input type="password" name="password">
         <input type="submit" value="Create">
     </form>
+    </div>
 </body>

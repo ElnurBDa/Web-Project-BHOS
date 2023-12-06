@@ -6,6 +6,13 @@
     <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/register">Register</a></li>
+        </ul>
+    </nav>
+    <div class="container">
     <h1>Login</h1>
     <% if (error) { %>
         <h3 class="error"><%= error %></h3>
@@ -24,4 +31,5 @@
         <input class="button-primary" type="submit" value="Login">
     </form>
     <p>Have you signed up? <a href="/register">Register HERE!!!</a></p>
+    </div>
 </body>

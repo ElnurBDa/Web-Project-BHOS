@@ -6,6 +6,15 @@
     <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/profile">Profile</a></li>
+            <li><a href="/admin">Admin</a></li> 
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+    </nav>
+    <div class="container">
     <h1>Update Fight</h1>
     <form action="/fights/update/<%= fight.id_gladiator1 %>/<%= fight.id_gladiator2 %>" method="POST">
         <label for="fight_date">Fight Date:</label>
@@ -14,4 +23,5 @@
         <input type="text" id="arena" name="arena" required><br>
         <input type="submit" value="Update Fight">
     </form>
+    </div>
 </body>

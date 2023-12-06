@@ -1,15 +1,34 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Profile Page</title>
+    <title>GFM</title>
+    <link rel="stylesheet" href="/css/skeleton.css">
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/profile">Profile</a></li>
+            <li><a href="/fights">Fights</a></li>
+            <% if (gladiator.gladiator_type=="admin") { %>
+                <li><a href="/admin">Admin</a></li> 
+            <%} %>
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+    </nav>
+    <div class="container">
     <h1>Welcome to your profile page!</h1>
-    <a href="/">Back</a>
     <h3>This is where you can showcase information about yourself.</h3>
     <p>Name: <%=gladiator.name%></p>
     <p>Age: <%=gladiator.age%></p>
     <p>Experience: <%=gladiator.experience%></p>
     <p>Gladiator Type: <%=gladiator.gladiator_type%></p>
+    
+    <% if (!gladiator.gladiator_type=="admin") { %>
+        <h6>Bear-Leader will invite you to fight soon!!!</h6>
+    <%} %>
+    
+    </div>
 </body>
 </html>

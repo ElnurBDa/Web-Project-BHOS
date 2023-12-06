@@ -162,7 +162,8 @@ class Database {
                 bcrypt.compare(password, rows[0].hashed_password, (err, result) => {
                     if (err)
                         return reject(err);
-                    resolve(result);
+                    if (result) resolve(rows[0]);
+                    resolve(false);
                 });
             });
         });

@@ -6,6 +6,15 @@
     <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/profile">Profile</a></li>
+            <li><a href="/admin">Admin</a></li> 
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+    </nav>
+    <div class="container">
     <h1>Update Gladiator</h1>
     <form action="/gladiators/update/<%= gladiator.id %>" method="POST">
         <label for="name">Name</label>
@@ -20,4 +29,5 @@
         <input type="text" name="gladiator_type" value="<%= gladiator.gladiator_type %>">
         <input type="submit" value="Update">
     </form>
+    </div>
 </body>

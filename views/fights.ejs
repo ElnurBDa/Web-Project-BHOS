@@ -6,12 +6,22 @@
     <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
-    <h1>Fights</h1>
-    <% fights.forEach(function(fight) { %> 
-        <div class="fight">
-            <h3><%= fight.name1 %> VS <%= fight.name2 %></h3>
-            <p><%= fight.fight_date %></p>
-            <p><%= fight.arena %></p>
-        </div>
-    <% }); %>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/fights">Fights</a></li>
+            <li><a href="/profile">Profile</a></li>
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h1>Fights</h1>
+        <% fights.forEach(function(fight) { %> 
+            <div class="fight">
+                <h3><%= fight.name1 %> VS <%= fight.name2 %></h3>
+                <p><%= fight.fight_date %></p>
+                <p><%= fight.arena %></p>
+            </div>
+        <% }); %>
+    </div>
 </body>

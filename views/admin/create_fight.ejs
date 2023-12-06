@@ -6,6 +6,15 @@
     <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/profile">Profile</a></li>
+            <li><a href="/admin">Admin</a></li> 
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+    </nav>
+    <div class="container">
     <h1>Create Fight</h1>
     <form action="/fights/create" method="post">
         <label for="id_gladiator1">Gladiator 1 ID:</label>
@@ -22,4 +31,5 @@
 
         <input type="submit" value="Create Fight">
     </form>
+    </div>
 </body>

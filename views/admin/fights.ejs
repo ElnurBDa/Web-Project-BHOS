@@ -6,6 +6,15 @@
     <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/profile">Profile</a></li>
+            <li><a href="/admin">Admin</a></li> 
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+    </nav>
+    <div class="container">
     <h1>Admin Dashboard</h1>
     <button onclick="window.location.href = '/admin';">Manage Gladiators</button>
     <button onclick="window.location.href = '/fights/create';">Add Fights</button>
@@ -38,4 +47,5 @@
             <% }); %>
         </tbody>
     </table>
+    </div>
 </body>

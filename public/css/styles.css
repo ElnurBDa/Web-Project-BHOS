@@ -1,0 +1,57 @@
+/* Reset some default styles */
+body, h1, h2, ul, li, a {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background: #f4f4f4;
+}
+
+nav {
+    background: #333;
+    color: #fff;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+nav a {
+    color: #fff;
+    font-size: 18px;
+}
+
+h1 {
+    color: #333;
+    text-align: center;
+    margin-top: 20px;
+}
+
+h2 {
+    color: #555;
+    text-align: center;
+    margin-top: 10px;
+}
+a:hover {
+    color: #fff;
+    background: #000;
+    padding: 5px;
+    border-radius: 5px;
+}
+container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+    padding: 20px;
+}
