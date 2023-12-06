@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GFM</title>
+    <link rel="stylesheet" href="/css/skeleton.css">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <h1>Admin Dashboard</h1>
+    <button onclick="window.location.href = '/admin';">Manage Gladiators</button>
+    <button onclick="window.location.href = '/fights/create';">Add Fights</button>
+    <table>
+        <thead>
+            <tr>
+                <th>ID1</th>
+                <th>ID2</th>
+                <th>Date</th>
+                <th>Arena</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% fights.forEach(function(fight) { %>
+                <tr>
+                    <td><%= fight.id_gladiator1 %></td>
+                    <td><%= fight.id_gladiator2 %></td>
+                    <td><%= fight.fight_date %></td>
+                    <td><%= fight.arena %></td>
+                    <td>
+                        <form action="/fights/delete/<%= fight.id_gladiator1 %>/<%= fight.id_gladiator2 %>" method="POST">
+                            <input type="submit" value="Delete">
+                        </form>
+                        <form action="/fights/update/<%= fight.id_gladiator1 %>/<%= fight.id_gladiator2 %>" method="GET">
+                            <input type="submit" value="Edit">
+                        </form>
+                    </td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+</body>

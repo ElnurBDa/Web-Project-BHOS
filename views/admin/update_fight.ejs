@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GFM</title>
+    <link rel="stylesheet" href="/css/skeleton.css">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <h1>Update Fight</h1>
+    <form action="/fights/update/<%= fight.id_gladiator1 %>/<%= fight.id_gladiator2 %>" method="POST">
+        <label for="fight_date">Fight Date:</label>
+        <input type="date" id="fight_date" name="fight_date" required><br>
+        <label for="arena">Arena:</label>
+        <input type="text" id="arena" name="arena" required><br>
+        <input type="submit" value="Update Fight">
+    </form>
+</body>

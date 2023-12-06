@@ -7,4 +7,36 @@
 </head>
 <body>
     <h1>Register</h1>
+    <% if (error) { %>
+        <h3 class="error"><%= error %></h3>
+    <% } %>
+    <form action="/register" method="post">
+        <div class="row">
+            <div class="four columns">
+                <label for="name">Name</label>
+                <input class="u-full-width" type="text" name="name" id="name">
+                <label for="age">Age</label>
+                <input class="u-full-width" type="number" name="age" id="age">
+            </div>
+            <div class="four columns">
+                <label for="experience">Experience</label>
+                <input class="u-full-width" type="number" name="experience" id="experience">
+                <label for="gladiator_type">Gladiator Type</label>
+                <select class="u-full-width" name="gladiator_type" id="gladiator_type">
+                    <option value="Swordsman">Swordsman</option>
+                    <option value="Archer">Archer</option>
+                    <option value="Spearman">Spearman</option>
+                    <option value="Cavalry">Cavalry</option>
+                </select>
+            </div>
+            <div class="four columns">
+                <label for="password">Password</label>
+                <input class="u-full-width" type="password" name="password" id="password">
+                <label for="rpassword">Repeat Password</label>
+                <input class="u-full-width" type="password" name="rpassword" id="rpassword">
+            </div>
+            <input class="button-primary" type="submit" value="Register">
+        </div>
+    </form>
+    <p>Have you signed up? <a href="/login">Login HERE!!!</a></p>
 </body>

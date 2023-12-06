@@ -54,7 +54,7 @@ Create 'CRUD based app' (or 'security simulation app') by following requirements
 		- after auth he is added as gladiator
 		- he can see other gladiators
 		- he can se scheduled fights
-	- admin:
+	- admin: `Bear-Leader:qweads123!@#B`
 		- adds
 		- updates
 		- removes

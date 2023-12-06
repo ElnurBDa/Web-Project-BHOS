@@ -7,4 +7,11 @@
 </head>
 <body>
     <h1>Fights</h1>
+    <% fights.forEach(function(fight) { %> 
+        <div class="fight">
+            <h3><%= fight.name1 %> VS <%= fight.name2 %></h3>
+            <p><%= fight.fight_date %></p>
+            <p><%= fight.arena %></p>
+        </div>
+    <% }); %>
 </body>

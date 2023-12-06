@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GFM</title>
+    <link rel="stylesheet" href="/css/skeleton.css">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <h1>Create Fight</h1>
+    <form action="/fights/create" method="post">
+        <label for="id_gladiator1">Gladiator 1 ID:</label>
+        <input type="text" id="id_gladiator1" name="id_gladiator1" required><br>
+
+        <label for="id_gladiator2">Gladiator 2 ID:</label>
+        <input type="text" id="id_gladiator2" name="id_gladiator2" required><br>
+
+        <label for="fight_date">Fight Date:</label>
+        <input type="date" id="fight_date" name="fight_date" required><br>
+
+        <label for="arena">Arena:</label>
+        <input type="text" id="arena" name="arena" required><br>
+
+        <input type="submit" value="Create Fight">
+    </form>
+</body>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GFM</title>
+    <link rel="stylesheet" href="/css/skeleton.css">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <h1>Update Gladiator</h1>
+    <form action="/gladiators/update/<%= gladiator.id %>" method="POST">
+        <label for="name">Name</label>
+        <input type="text" name="name" value="<%= gladiator.name %>">
+        <label for="age">Age</label>
+        <input type="text" name="age" value="<%= gladiator.age %>">
+        <label for="experience">Experience</label>
+        <input type="text" name="experience" value="<%= gladiator.experience %>">
+        <label for="password">Password</label>
+        <input type="text" name="password" value="It is Hashed...">
+        <label for="gladiator_type">Gladiator Type</label>
+        <input type="text" name="gladiator_type" value="<%= gladiator.gladiator_type %>">
+        <input type="submit" value="Update">
+    </form>
+</body>

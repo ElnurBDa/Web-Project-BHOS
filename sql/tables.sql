@@ -7,7 +7,8 @@ CREATE TABLE gladiators_table (
     name VARCHAR(255) NOT NULL,
     age INT,
     experience INT,
-    hashed_password VARCHAR(255) NOT NULL
+    hashed_password VARCHAR(255) NOT NULL,
+    gladiator_type VARCHAR(255) NOT NULL
 );
 
 -- Creating fights_table
@@ -16,6 +17,6 @@ CREATE TABLE fights_table (
     id_gladiator2 INT,
     fight_date DATE,
     arena VARCHAR(255),
-    FOREIGN KEY (id_gladiator1) REFERENCES gladiators_table(id),
-    FOREIGN KEY (id_gladiator2) REFERENCES gladiators_table(id)
+    FOREIGN KEY (id_gladiator1) REFERENCES gladiators_table(id) ON DELETE CASCADE,
+    FOREIGN KEY (id_gladiator2) REFERENCES gladiators_table(id) ON DELETE CASCADE
 );

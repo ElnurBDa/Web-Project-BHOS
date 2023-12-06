@@ -7,4 +7,21 @@
 </head>
 <body>
     <h1>Login</h1>
+    <% if (error) { %>
+        <h3 class="error"><%= error %></h3>
+    <% } %>
+    <form action="/login" method="post">
+        <div class="row">
+            <div class="six columns">
+                <label for="name">Name</label>
+                <input class="u-full-width" type="text" name="name" id="name">
+            </div>
+            <div class="six columns">
+                <label for="password">Password</label>
+                <input class="u-full-width" type="password" name="password" id="password">
+            </div>
+        </div>
+        <input class="button-primary" type="submit" value="Login">
+    </form>
+    <p>Have you signed up? <a href="/register">Register HERE!!!</a></p>
 </body>

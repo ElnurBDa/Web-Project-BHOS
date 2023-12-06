@@ -42,16 +42,38 @@ class Database {
         });
     }
 
-    addGladiator(name, age, experience, password) {
+    addGladiator(name, age, experience, password, gladiator_type) {
         return new Promise((resolve, reject) => {
             bcrypt.hash(password, 10, (err, hash) => {
                 if (err)
                     return reject(err);
-                this.connection.query(`insert into gladiators_table (name, age, experience, hashed_password) values (?, ?, ?, ?)`, [name, age, experience, hash], (err, rows) => {
+                this.connection.query(`insert into gladiators_table (name, age, experience, hashed_password, gladiator_type) values (?, ?, ?, ?, ?)`, [name, age, experience, hash, gladiator_type], (err, rows) => {
                     if (err)
                         return reject(err);
                     resolve(rows);
                 });
+            });
+        });
+    }
+
+    register(name, age, experience, password, gladiator_type) {
+        return new Promise((resolve, reject) => {
+            this.connection.query(`select * from gladiators_table where name = ?`, [name], (err, rows) => {
+                if (err)
+                    return reject(err);
+                if (rows.length > 0) {
+                    return reject('Username already exists!');
+                } else {
+                    bcrypt.hash(password, 10, (err, hash) => {
+                        if (err)
+                            return reject(err);
+                        this.connection.query(`insert into gladiators_table (name, age, experience, hashed_password, gladiator_type) values (?, ?, ?, ?, ?)`, [name, age, experience, hash, gladiator_type], (err, rows) => {
+                            if (err)
+                                return reject(err);
+                            resolve(rows);
+                        });
+                    });
+                }
             });
         });
     }
@@ -66,12 +88,12 @@ class Database {
         });
     }
 
-    updateGladiator(id_gladiator, name, age, experience, password) {
+    updateGladiator(id_gladiator, name, age, experience, password, gladiator_type) {
         return new Promise((resolve, reject) => {
             bcrypt.hash(password, 10, (err, hash) => {
                 if (err)
                     return reject(err);
-                this.connection.query(`update gladiators_table set name=?, age=?, experience=?, hashed_password=? where id_gladiator=?`, [name, age, experience, hash, id_gladiator], (err, rows) => {
+                this.connection.query(`update gladiators_table set name=?, age=?, experience=?, hashed_password=?, gladiator_type=? where id=?`, [name, age, experience, hash, gladiator_type, id_gladiator], (err, rows) => {
                     if (err)
                         return reject(err);
                     resolve(rows);
@@ -80,9 +102,9 @@ class Database {
         });
     }
 
-    updateFight(id_fight, id_gladiator1, id_gladiator2, fight_date, arena) {
+    updateFight(id_gladiator1, id_gladiator2, fight_date, arena) {
         return new Promise((resolve, reject) => {
-            this.connection.query(`update fights_table set id_gladiator1=?, id_gladiator2=?, fight_date=?, arena=? where id_fight=?`, [id_gladiator1, id_gladiator2, fight_date, arena, id_fight], (err, rows) => {
+            this.connection.query(`update fights_table set fight_date=?, arena=? where id_gladiator1=? and id_gladiator2=?`, [fight_date, arena, id_gladiator1, id_gladiator2], (err, rows) => {
                 if (err)
                     return reject(err);
                 resolve(rows);
@@ -92,7 +114,7 @@ class Database {
 
     deleteGladiatorByID(id_gladiator) {
         return new Promise((resolve, reject) => {
-            this.connection.query(`delete from gladiators_table where id_gladiator=?`, [id_gladiator], (err, rows) => {
+            this.connection.query(`delete from gladiators_table where id=?`, [id_gladiator], (err, rows) => {
                 if (err)
                     return reject(err);
                 resolve(rows);
@@ -100,9 +122,9 @@ class Database {
         });
     }
 
-    deleteFightByID(id_fight) {
+    deleteFightByID(id_gladiator1,id_gladiator2) {
         return new Promise((resolve, reject) => {
-            this.connection.query(`delete from fights_table where id_fight=?`, [id_fight], (err, rows) => {
+            this.connection.query(`delete from fights_table where id_gladiator1=? and id_gladiator2=?`, [id_gladiator1,id_gladiator2], (err, rows) => {
                 if (err)
                     return reject(err);
                 resolve(rows);
@@ -112,7 +134,7 @@ class Database {
 
     getGladiatorByID(id_gladiator) {
         return new Promise((resolve, reject) => {
-            this.connection.query(`select * from gladiators_table where id_gladiator=?`, [id_gladiator], (err, rows) => {
+            this.connection.query(`select * from gladiators_table where id=?`, [id_gladiator], (err, rows) => {
                 if (err)
                     return reject(err);
                 resolve(rows);
@@ -120,12 +142,28 @@ class Database {
         });
     }
 
-    getFightByID(id_fight) {
+    getFightByID(id_gladiator1,id_gladiator2) {
         return new Promise((resolve, reject) => {
-            this.connection.query(`select * from fights_table where id_fight=?`, [id_fight], (err, rows) => {
+            this.connection.query(`select * from fights_table where id_gladiator1=? and id_gladiator2=?`, [id_gladiator1,id_gladiator2], (err, rows) => {
                 if (err)
                     return reject(err);
                 resolve(rows);
+            });
+        });
+    }
+
+    login(name, password) {
+        return new Promise((resolve, reject) => {
+            this.connection.query(`select * from gladiators_table where name=?`, [name], (err, rows) => {
+                if (err)
+                    return reject(err);
+                if (rows.length == 0)
+                    return resolve(false);
+                bcrypt.compare(password, rows[0].hashed_password, (err, result) => {
+                    if (err)
+                        return reject(err);
+                    resolve(result);
+                });
             });
         });
     }

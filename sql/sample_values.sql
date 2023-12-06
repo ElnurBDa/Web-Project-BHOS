@@ -1,14 +1,15 @@
-INSERT INTO gladiators_table (name,age,experience,hashed_password) VALUES
-('Maximus', 35, 10, 'password'),
-('Commodus', 25, 5, 'password'),
-('Tigris', 30, 7, 'password'),
-('Juba', 28, 8, 'password'),
-('Cassius', 32, 9, 'password'),
-('Quintus', 27, 6, 'password'),
-('Lucilla', 23, 4, 'password'),
-('Marcus', 26, 3, 'password'),
-('Gracchus', 29, 2, 'password'),
-('Falco', 31, 1, 'password');
+INSERT INTO gladiators_table (name,age,experience,hashed_password, gladiator_type) VALUES
+('Maximus', 35, 10, 'password', 'Swordsman'),
+('Commodus', 25, 5, 'password', 'Archer'),
+('Tigris', 30, 7, 'password', 'Archer'),
+('Juba', 28, 8, 'password', 'Archer'),
+('Cassius', 32, 9, 'password', 'Archer'),
+('Quintus', 27, 6, 'password', 'Swordsman'),
+('Lucilla', 23, 4, 'password', 'Swordsman'),
+('Marcus', 26, 3, 'password', 'Swordsman'),
+('Gracchus', 29, 2, 'password', 'Cavalry'),
+('Falco', 31, 1, 'password', 'Swordsman'),
+('Bear-Leader',40,25,'$2b$10$4BnrAjsvFkj8lh/OUsYU5.Xmz4YpMemrUcgMWfaEOSVR9YIEfdSG6', 'admin'); -- qweads123!@#B
 
 INSERT INTO fights_table (id_gladiator1,id_gladiator2,fight_date, arena) VALUES
 (1, 2, '2024-01-01', 'Deniz Mall Arena'),
