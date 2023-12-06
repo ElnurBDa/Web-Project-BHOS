@@ -55,3 +55,47 @@ container {
     overflow: hidden;
     padding: 20px;
 }
+
+body {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    height: 100vh; 
+    overflow-x: hidden;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+
+    background: url("/images/pic2.webp") no-repeat center center;
+    background-size: cover;
+    filter: blur(3px);
+}
+
+.container {
+    position: relative;
+    z-index: 1;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px;
+    margin-top: 20px;
+    border-radius: 20px;
+}
+
+
+body,label {
+    cursor: url('/images/sword_1.png'), auto;
+}
+a, button,input[type="submit"] {
+    cursor: url('/images/sword_2.png'), pointer;
+}
+
+::selection {
+    background-color: darkred;
+    color: white; 
+}

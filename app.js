@@ -178,7 +178,13 @@ app.get('/gladiators/create', isAdmin, (req,res) => {
     res.render('admin/create_gladiator');
 })
 
-app.post('/gladiators/create', isAdmin, (req,res) => {
+app.post('/gladiators/create', isAdmin,
+body('name').trim().isLength({min:3, max:15}).escape().withMessage('Username should be between 3 and 15 symbols!'),
+body('password').trim().isLength({min:8}).matches('[0-9]').matches('[A-Z]').matches('[a-z]').escape().withMessage('Password should be at least 8 symbols long and contain at least one digit, one lowercase and one uppercase symbol!'),
+body('age').trim().escape(),
+body('experience').trim().escape(),
+body('gladiator_type').trim().escape(),
+(req,res) => {
     db.addGladiator(req.body.name, req.body.age, req.body.experience, req.body.password, req.body.gladiator_type).then(() => {
         res.redirect('/admin');
     });
@@ -203,7 +209,10 @@ app.get('/fights/update/:id1/:id2', isAdmin, (req,res) => {
     });
 })
 
-app.post('/fights/update/:id1/:id2', isAdmin, (req,res) => {
+app.post('/fights/update/:id1/:id2', isAdmin,
+body('fight_date').trim().escape(),
+body('arena').trim().escape(),
+(req,res) => {
     db.updateFight(req.params.id1, req.params.id2, req.body.fight_date, req.body.arena).then(() => {
         res.redirect('/admin/fights');
     });
@@ -213,7 +222,12 @@ app.get('/fights/create', isAdmin, (req,res) => {
     res.render('admin/create_fight');
 })
 
-app.post('/fights/create', isAdmin, (req,res) => {
+app.post('/fights/create', isAdmin, 
+body('id_gladiator1').trim().escape(),
+body('id_gladiator2').trim().escape(),
+body('fight_date').trim().escape(),
+body('arena').trim().escape(),
+(req,res) => {
     db.addFight(req.body.id_gladiator1, req.body.id_gladiator2, req.body.fight_date, req.body.arena).then(() => {
         res.redirect('/admin/fights');
     });

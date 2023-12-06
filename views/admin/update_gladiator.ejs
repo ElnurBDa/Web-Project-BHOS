@@ -4,6 +4,11 @@
     <title>GFM</title>
     <link rel="stylesheet" href="/css/skeleton.css">
     <link rel="stylesheet" href="/css/styles.css">
+    <style>
+        body::before {
+            background-image: url("/images/pic1.webp");
+        }
+    </style>
 </head>
 <body>
     <nav>
@@ -18,15 +23,15 @@
     <h1>Update Gladiator</h1>
     <form action="/gladiators/update/<%= gladiator.id %>" method="POST">
         <label for="name">Name</label>
-        <input type="text" name="name" value="<%= gladiator.name %>">
+        <input type="text" name="name" value="<%= gladiator.name %>" required>
         <label for="age">Age</label>
-        <input type="text" name="age" value="<%= gladiator.age %>">
+        <input type="text" name="age" value="<%= gladiator.age %>" required>
         <label for="experience">Experience</label>
-        <input type="text" name="experience" value="<%= gladiator.experience %>">
+        <input type="text" name="experience" value="<%= gladiator.experience %>" required>
         <label for="password">Password</label>
-        <input type="text" name="password" value="It is Hashed...">
+        <input type="text" name="password" value="It is Hashed..." required>
         <label for="gladiator_type">Gladiator Type</label>
-        <input type="text" name="gladiator_type" value="<%= gladiator.gladiator_type %>">
+        <input type="text" name="gladiator_type" value="<%= gladiator.gladiator_type %>" required>
         <input type="submit" value="Update">
     </form>
     </div>

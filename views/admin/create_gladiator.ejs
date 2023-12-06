@@ -4,6 +4,11 @@
     <title>GFM</title>
     <link rel="stylesheet" href="/css/skeleton.css">
     <link rel="stylesheet" href="/css/styles.css">
+    <style>
+        body::before {
+            background-image: url("/images/pic1.webp");
+        }
+    </style>
 </head>
 <body>
     <nav>
@@ -18,15 +23,15 @@
     <h1>Create Gladiator</h1>
     <form action="/gladiators/create" method="POST">
         <label for="name">Name</label>
-        <input type="text" name="name">
+        <input type="text" name="name" required>
         <label for="age">Age</label>
-        <input type="text" name="age">
+        <input type="text" name="age" required>
         <label for="experience">Experience</label>
-        <input type="text" name="experience">
+        <input type="text" name="experience" required>
         <label for="gladiator_type">Gladiator Type</label>
-        <input type="text" name="gladiator_type">
+        <input type="text" name="gladiator_type" required>
         <label for="password">Password</label>
-        <input type="password" name="password">
+        <input type="password" name="password" required>
         <input type="submit" value="Create">
     </form>
     </div>
