@@ -95,7 +95,15 @@ source tables.sql
 # bash/cmd
 npm i
 node app.js
+# add .env file
+PORT=8000
+DB_HOST="localhost"
+DB_USER=""
+DB_PASS=""
+DATABASE="gladiators_db"
+SESSION_SECRET=""
 ```
+
 # Notes
 1) Admin: `Bear-Leader:qweads123!@#B`
 2) This project is developed as project for Web Development Course in BHOS. Do not copy and full your teacher!!!
